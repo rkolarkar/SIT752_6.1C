@@ -39,10 +39,12 @@ pipeline {
     }
     post {
         always {
-            mail to: 's223742152@deakin.edu.au',
+            emailext (
+		 to: 's223742152@deakin.edu.au',
                  subject: "Pipeline Status: ${currentBuild.currentResult}",
                  body: "Pipeline finished with status: ${currentBuild.currentResult}",
                  attachmentsPattern: '**/log'
+	   )
         }
     }
 }
