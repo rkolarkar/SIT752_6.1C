@@ -41,7 +41,7 @@ pipeline {
         success {
             echo 'Pipeline succeeded!'
             emailext attachLog: true,
-                to: "s223742152@deakin.edu.au",
+                recipientProviders: "s223742152@deakin.edu.au",
                 subject: "Jenkins Pipeline Success: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins pipeline ${currentBuild.fullDisplayName} was successful."
         }
