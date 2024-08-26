@@ -41,7 +41,7 @@ pipeline {
         success {
             echo 'Pipeline succeeded!'
             emailext (
-                to: 'developer@example.com',
+                to: 's223742152@deakin.edu.au',
                 subject: "Jenkins Pipeline Success: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins pipeline ${currentBuild.fullDisplayName} was successful.",
                 attachmentsPattern: '**/log'
@@ -50,7 +50,7 @@ pipeline {
         failure {
             echo 'Pipeline failed!'
             emailext (
-                to: 'developer@example.com',
+                to: 's223742152@deakin.edu.au',
                 subject: "Jenkins Pipeline Failure: ${currentBuild.fullDisplayName}",
                 body: "The Jenkins pipeline ${currentBuild.fullDisplayName} failed. Please review the attached logs.",
                 attachmentsPattern: '**/log'
