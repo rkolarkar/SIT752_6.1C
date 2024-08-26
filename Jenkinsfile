@@ -38,13 +38,23 @@ pipeline {
         }
     }
     post {
-        always {
+        success {
+            echo 'Pipeline succeeded!'
             emailext (
-		 to: 's223742152@deakin.edu.au',
-                 subject: "Pipeline Status: ${currentBuild.currentResult}",
-                 body: "Pipeline finished with status: ${currentBuild.currentResult}",
-                 attachmentsPattern: '**/log'
-	   )
+                to: 'developer@example.com',
+                subject: "Jenkins Pipeline Success: ${currentBuild.fullDisplayName}",
+                body: "The Jenkins pipeline ${currentBuild.fullDisplayName} was successful.",
+                attachmentsPattern: '**/log'
+            )
+        }
+        failure {
+            echo 'Pipeline failed!'
+            emailext (
+                to: 'developer@example.com',
+                subject: "Jenkins Pipeline Failure: ${currentBuild.fullDisplayName}",
+                body: "The Jenkins pipeline ${currentBuild.fullDisplayName} failed. Please review the attached logs.",
+                attachmentsPattern: '**/log'
+            )
         }
     }
 }
