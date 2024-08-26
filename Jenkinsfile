@@ -36,12 +36,12 @@ pipeline {
                 echo 'Deploying to production... test'
             }
         }
-    }
-    post{
-        success{
-            mail to: "s223742152@deakin.edu.au"
-            subject: "build status"
-            body: "build was successful"
+        post{
+            success{
+                mail to: "s223742152@deakin.edu.au"
+                subject: "build status"
+                body: "build was successful"
+            }
         }
     }
 }
