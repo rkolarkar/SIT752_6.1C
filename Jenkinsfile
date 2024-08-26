@@ -37,24 +37,11 @@ pipeline {
             }
         }
     }
-    post {
-        success {
-            echo 'Pipeline succeeded!'
-            emailext (
-                to: 's223742152@deakin.edu.au',
-                subject: "Jenkins Pipeline Success: ${currentBuild.fullDisplayName}",
-                body: "The Jenkins pipeline ${currentBuild.fullDisplayName} was successful.",
-                attachmentsPattern: '**/log'
-            )
-        }
-        failure {
-            echo 'Pipeline failed!'
-            emailext (
-                to: 's223742152@deakin.edu.au',
-                subject: "Jenkins Pipeline Failure: ${currentBuild.fullDisplayName}",
-                body: "The Jenkins pipeline ${currentBuild.fullDisplayName} failed. Please review the attached logs.",
-                attachmentsPattern: '**/log'
-            )
+    post{
+        success{
+            mail to: "s223742152@deakin.edu.au"
+            subject: "build status"
+            body: "build was successful"
         }
     }
 }
