@@ -37,8 +37,8 @@ pipeline {
             }
             post{
                 success{
-                    mail to: "s223742152@deakin.edu.au"
-                    subject: "build status"
+                    mail to: "s223742152@deakin.edu.au",
+                    subject: "build status",
                     body: "build was successful"
                 }
             }
