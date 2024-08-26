@@ -42,7 +42,7 @@ pipeline {
             mail to: 's223742152@deakin.edu.au',
                  subject: "Pipeline Status: ${currentBuild.currentResult}",
                  body: "Pipeline finished with status: ${currentBuild.currentResult}",
-                 attachLog: true
+                 attachmentsPattern: '**/log'
         }
     }
 }
